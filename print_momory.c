@@ -13,20 +13,38 @@
 
 #include <unistd.h>
 
-
-void	print_memory(const void *addr, size_t size);
+void	print_memory(const void *addr, size_t size)
 {
-    unsigned char *ptr = (unsigned char)addr;
+    unsigned const char *ptr = addr;
 	char base[16] = "0123456789abcdef";
 	int i = 0;
+	int j = -1;
+	char tab[17];
 
-	while (i < size)
+	tab[16] = '\0';
+	while (i < size || i % 16)
 	{
-		write(1, base + ptr[i] / 16, 1);
-		write(1, base + ptr[i] % 16, 1);
+		if (i < size){
+			write(1, base + ptr[i] / 16, 1);
+			write(1, base + ptr[i] % 16, 1);
+			tab[i % 16] =  (ptr[i] >= 32 && ptr[i] <= 126) ? ptr[i] : '.';
+		}
+		else
+			write(1, "  ", 2);
+		if (++i % 2 == 0)
+			write(1, " ", 1);
+		if (i % 16 == 0)
+		{
+			j = -1;
+			while (tab[++j])
+			{
+				write(1, tab + j, 1);
+				tab[j] = '\0';
+			}
+			write(1, "\n", 1);
+		}
 	}
 }
-
 
 int main(int ac, char **av)
 {
