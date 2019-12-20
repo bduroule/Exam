@@ -46,6 +46,8 @@ void	print_memory(const void *addr, size_t size)
 	}
 }
 
+
+
 /*
 ** MAIN
 */
@@ -58,3 +60,7 @@ int main(int ac, char **av)
 	print_memory(tab, sizeof(tab));
 	return (0);
 }
+
+/*
+** MAIN
+*/

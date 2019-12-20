@@ -36,6 +36,8 @@ int        cycle_detector(const t_list *list)
     return 0;
 }
 
+
+
 /*
 ** MAIN
 */
@@ -57,3 +59,7 @@ int main(void)
 	printf("%d\n", cycle_detector(node1));
     return 0;
 }
+
+/*
+** MAIN
+*/

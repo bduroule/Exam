@@ -77,6 +77,8 @@ char    **ft_split(char *str)
     return tab;
 }
 
+
+
 /*
 ** MAIN
 */
@@ -89,3 +91,7 @@ int main(int ac, char **av)
         printf("{%s}\n", tab[i]);
     return 0;
 }
+
+/*
+** MAIN
+*/
