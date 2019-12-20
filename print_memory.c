@@ -46,6 +46,10 @@ void	print_memory(const void *addr, size_t size)
 	}
 }
 
+/*
+** MAIN
+*/
+
 int main(int ac, char **av)
 {
     int	tab[10] = {0, 23, 150, 255,

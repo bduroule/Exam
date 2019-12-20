@@ -38,6 +38,10 @@ void sort_int_tab(int *tab, unsigned int size)
     }
 }
 
+/*
+** MAIN
+*/
+
 int main(int ac, char **av)
 {
     int tab[10] = {150, 25, -10, 2147483647, 1, 300, -2147483648, 8, 5, -8};

@@ -49,6 +49,10 @@ char	*ft_itoa_base(int value, int base)
     return str;
 }
 
+/*
+** MAIN
+*/
+
 int main(int ac, char **av)
 {
     char *str;

@@ -77,6 +77,10 @@ char    **ft_split(char *str)
     return tab;
 }
 
+/*
+** MAIN
+*/
+
 int main(int ac, char **av)
 {
     char **tab = ft_split(av[1]);
