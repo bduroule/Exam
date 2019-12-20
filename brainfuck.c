@@ -13,33 +13,19 @@
 
 #include <unistd.h>
 
-int w_brain(char *str, int i)
+int w_brain(char *str, int j, int way)
 {
-    int loop = 0;
-
-    if (str[i] == '[')
-    {
-        i++;
-        while (!(str[i] == ']' && loop == 0))
-        {
-            if (str[i] == '[' || str[i] == ']')
-                str[i] == '[' ? loop++ : loop--;
-            i++;
-        }
-        i--;
-    }
-    else if (str[i] == ']')
-    {
-        i--;
-        while (!(str[i] == '[' && loop == 0))
-        {
-            if (str[i] == ']' || str[i] == '[')
-                str[i] == ']' ? loop++ : loop--;
-            i--;
-        }
-        i--;
-    }
-    return (i);
+	int	i = 0;
+    
+	while (1)
+	{
+		if (str[j] == '[' || str[j] == ']')
+			str[j] == ']' ?  i++ : i--;
+		if (i == 0)
+			return (j);
+		j += way;
+	}
+	return (0);
 }
 
 int brain_fuck(char *str)
@@ -57,9 +43,9 @@ int brain_fuck(char *str)
         else if (str[i] == '.')
             write(1, &ptr[j], 1);
         else if (str[i] == '[' && ptr[j] == 0)
-                i = w_brain(str, i);
+                i = w_brain(str, i, 1);
         else if (str[i] == ']' && ptr[j])
-                i = w_brain(str, i);
+                i = w_brain(str, i, -1);
     }
     return 0;
 }
