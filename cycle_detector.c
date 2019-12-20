@@ -47,10 +47,10 @@ int        cycle_detector(const t_list *list)
 
 int main(void)
 {
-	t_list *node1 = malloc(sizeof(t_list));;
-	t_list *node2 = malloc(sizeof(t_list));;
-	t_list *node3 = malloc(sizeof(t_list));;
-	t_list *node4 = malloc(sizeof(t_list));;
+	t_list *node1 = malloc(sizeof(t_list));
+	t_list *node2 = malloc(sizeof(t_list));
+	t_list *node3 = malloc(sizeof(t_list));
+	t_list *node4 = malloc(sizeof(t_list));
 
     node1->next = node2;
     node2->next = node3;
