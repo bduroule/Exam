@@ -13,6 +13,11 @@
 
 #include <unistd.h>
 
+int is_aplpha(char a)
+{
+    return (a >= 'a' && a <= 'z');
+}
+
 int main(int ac, char **av)
 {
     int tab[32] = {0};
@@ -23,14 +28,14 @@ int main(int ac, char **av)
         return (write(1, "options: abcdefghijklmnopqrstuvwxyz\n", 36));
     while (++i < ac)
     {
-        j = -1;
+        j = 0;
         while (av[i][++j])
         {
             if (av[i][0] == '-')
             {
                 if (av[i][j] == 'h')
                     return (write(1, "options: abcdefghijklmnopqrstuvwxyz\n", 36));
-                else if (av[i][j] < 'a' && av[i][j] > 'z')
+                else if (!(is_aplpha(av[i][j])))
                     return(write(1, "Invalid Option\n", 15));
                 else
                     tab['z' - av[i][j] + 6] = 1;
