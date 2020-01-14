@@ -11,6 +11,10 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
+/*
+** OK
+*/
+
 #include <unistd.h>
 
 int main(int ac, char **av)
@@ -35,7 +39,7 @@ int main(int ac, char **av)
         }
         while (av[1][i - j] == av[1][i + j + k - 1])
         {
-            if ((2 * j + k) >= size){
+            if ((2 * j + k) >= size && i - j > 0){
                 size = 2 * j + k;
                 start = i - j;
             }
