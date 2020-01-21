@@ -14,41 +14,29 @@
 #include <stdlib.h>
 #include <stdio.h> 
 
-int ft_ints(int n, int base)
+char    *ft_itoa_base(int value, int base)
 {
-    int i = 1;
-    while (n){
-        n /= base;
-        i++;
-    }
-    return i;
-}
-
-char	*ft_itoa_base(int value, int base)
-{
+    int si;
+    int i = 0;
     char *str;
-    int i = ft_ints(value, base);
+    int n;
 
-    if (base < 1 || base > 17 || (value < 10 && base != 10))
-        return NULL;
-    str = (char *)malloc(sizeof(char) * i);
+    n = (value < 0) ? -(long)value : value;
+    si = (value < 0 && base == 10) ? -1 : 0;
+    i = (si == -1) ? 2 : 1;
+    while (n /= base)
+        i++;
+    str = (char *)malloc(sizeof(char) * i + 1);
     str[i] = '\0';
-    if (value < 10 && base == 10){
-        str[0] = '-';
-        value *= -1;
-        i--;
-    }
-    else
-        i -= 2;
-    while (value)
+    n = value < 0 ? -(long)value : value;
+    while (i-- + si)
     {
-        str[i] = value % base + (value % base < 10 ? '0' : 'A' - 10);
-        value /= base;
-        i--;
+        str[i] = n % base + (n % base < 10 ? '0' : 'A' - 10);
+        n /= base;
     }
-    return str;
-}
-
+    (i == 0) ? str[i] = '-' : 0;
+    return str;                                                                                                     
+}   
 
 
 /*
